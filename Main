@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Dictionary dictionary = new Dictionary();
+        System.out.println("Nhập số lương từ: ");
+        int n =Integer.parseInt(sc.nextLine());
+        for(int i=0; i<n; i++){
+            System.out.println("Nhập từ thứ: " +(i+1));
+            String eng = sc.nextLine();
+            System.out.println("Nghĩa tiếng Việt là: ");
+            String vie = sc.nextLine();
+            dictionary.addWord(eng, vie);
+        }
+        System.out.println("Nhập từ cần tra cứu: ");
+        String searchWord = sc.nextLine();
+        System.out.println("Tra cứu " + searchWord+ ":=>" +dictionary.lookup(searchWord));
+        System.out.println("NHập từ cần xóa: ");
+        String deleteWord = sc.nextLine();
+        if(dictionary.deleteWord(deleteWord)){
+            System.out.println("Xóa thành công");
+        }else{
+            System.out.println("Không tìm thấy từ cần xóa");
+        }
+        dictionary.displayDictionary();
+    }
+}
