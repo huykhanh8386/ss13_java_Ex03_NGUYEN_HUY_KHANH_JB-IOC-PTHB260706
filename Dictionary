@@ -1,0 +1,28 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Dictionary {
+    private Map<String, String> dict = new HashMap<>();
+    public void addWord(String eng, String vie){
+        dict.put(eng, vie);
+    }
+    public String lookup(String eng){
+        if(dict.containsKey(eng)){
+            return dict.get(eng);
+        }
+        return "Không có";
+    }
+    public boolean deleteWord(String eng){
+        if (dict.containsKey(eng)){
+            dict.remove(eng);
+            return true;
+        }
+        return false;
+    }
+    public void displayDictionary(){
+        System.out.println("Danh sách từ điển hiện tại: ");
+        for(Map.Entry<String, String> entry : dict.entrySet()){
+            System.out.println(entry.getKey()+ ":" +entry.getValue());
+        }
+    }
+}
